@@ -12,6 +12,21 @@
   <p id='newBody1'></p>
   <p id='newBody2'></p>
   <table id="store-table"></table>
+  <fieldset>
+      <form id='school-form'>
+        <label>Name of Store</label>
+        <input required name="nameOfStore" />
+        <label>Location</label>
+      <input name="newLocation" />
+        <label>Min # of Cookies</label>
+        <input name="minCookies" min="0"  max="40" type="number"/>
+        <label>Max # of Cookies </label>
+        <input required name="maxCookies" min="0"  max="40" type="number"/>
+        <label>Ave. # of Cookies Per Customer</label>
+        <input required name ="aveCookies" min="0" max="40" type="number">
+        <button type="submit">Submit</button>
+      </form>
+    </fieldset>
 </body>
 <script src="../jScript/app.js"></script>
 </html>

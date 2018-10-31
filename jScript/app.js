@@ -4,6 +4,7 @@
 //let newBody1 = document.getElementById('newBody1')
 //let newBody2 = document.getElementById('newBody2')
 let newTable = document.getElementById('store-table')
+let newForm = document.getElementById('school-form')
 
 
 let hourOfOperation = ['6am', '7am', '8am', '9am', '10am','11am','12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm','8pm']
@@ -40,38 +41,77 @@ for(let i = 0; i < hourOfOperation.length; i++) {
 }
 //let totalCookiesPerDay = Stores[i].numberOfCookieSoldPerHour()
 //create a new row and append it to our table
-for(let j = 0; j < Stores.length; j++) {
+//BestCookies.prototype.cookiesSoldPerDay = function(){
+//BestCookies.prototype.prototype.renderNewSchool
+BestCookies.prototype.renderNewStore = function() {
   let elRow = document.createElement('tr')
   newTable.appendChild(elRow)
   let elTh = document.createElement('th')
   elRow.appendChild(elTh)
-  elTh.innerText = Stores[j].storeName
+  elTh.innerText = this.storeName
   
   let counter = 0
   for(let i = 0; i < hourOfOperation.length; i++) {
-    let cookiesSoldPerDay = Stores[j].numberOfCookieSoldPerHour()
+    let cookiesSoldPerDay = this.numberOfCookieSoldPerHour()
     let elTd = document.createElement('td')
     elRow.appendChild(elTd)
     elTd.innerText = cookiesSoldPerDay
     counter += cookiesSoldPerDay
+      
   } 
+
   let rTotal = document.createElement('th')
   elRow.appendChild(rTotal)
   rTotal.innerText = counter
+  
 }
+ 
 
+for(let j = 0; j < Stores.length; j++) {
+  Stores[j].renderNewStore()
+  
+}
 let eTotal = document.createElement('th')
 eHeader.appendChild(eTotal)
 eTotal.innerText = 'Total Per Day'
 
 
+//access our inputs on our form through dot notation
+let elNameOfStores = newForm.nameOfStore 
+let elLocation = newForm.newLocation
+let elMinCookies = newForm.minCookies
+let elMaxCookies = newForm.maxCookies
+let elAveCookies = newForm.aveCookies
+
+//create an event listener that will listen for a submit event and create a new instance of our constructor function using the values collected from our form
+newForm.addEventListener('submit', function(event) {
+  event.preventDefault()
+  let newStore = new BestCookies(elNameOfStores.value, elLocation, parseInt(elMinCookies.value), parseInt(elMaxCookies.value), parseInt(elAveCookies.value))
+
+  Stores.push(newStore)
+  
+  //invoke our rendernewschool method on our new school to generate a new row on our table. 
+  newStore.renderNewStore()
+})
+
+//}
+
+
+
+
+// let elNameOfSchool = newForm.elNameOfSchool
+// console.log(elNameOfSchool)
+// let elMinStudents = newForm.elMinStudents
+// newForm.addEventListener('submit', function(event)  {
+//   event.preventDefault()
+//   console.log('submitted')
+// })
+
 // for(let i=0; i<hourOfOperation.length; i++){
 //   let counter =0
 //   for(let j=0;j<Stores.length; j++)
   
-//   rTd.innerText = totalCookiesPerHour
-//   counter += totalCookiesPerHour
-//   //counter += Stores[j].hourOfOperation[i]
+ 
 // }
 // // let eTotal = document.createElement('th')
 // newTable.appendChild(eTotal)

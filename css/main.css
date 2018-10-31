@@ -4,3 +4,10 @@ tr, th {
 td{
   border: 1px solid red
 }
+table {
+ margin-bottom: 2em;
+}
+input{
+  border: 2px;
+  border-color: aquamarine;
+}
