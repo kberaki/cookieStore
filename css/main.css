@@ -1,0 +1,6 @@
+tr, th {
+  border: 1px solid blue;
+}
+td{
+  border: 1px solid red
+}
